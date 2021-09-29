@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All authors</title>
+</head>
+<body>
+
+<!- создаем кнопку с методом GET для вызова страници "/author/new" и пердачи в нее объекта Author ->
+<form th:method="GET" th:action="@{/user/new}" th:object="${user}">
+    <input type="submit" value="Create new user"/>
+</form>
+
+<br/>
+
+<div>
+    <table>
+        <tr>
+            <th>
+                <h3>
+                    <a th:text="${login}">value</a>
+                </h3>
+            </th>
+        </tr>
+        <tr>
+            <th>
+                <form th:method="GET" th:action="@{/logout}">
+                    <input type="submit" value="Logout"/>
+                </form>
+            </th>
+        </tr>
+    </table>
+</div>
+
+<!- проходим по листу достаем объекты (как foreach) ->
+<div th:each="user : ${users}">
+
+    <a th:text="${user.getId()}">user</a>)
+    <a th:text="${user.getName()}">user</a>
+    <a th:href="@{/user/{id}(id=${user.getId()})}" th:text="${user.getEmail()}">user</a>
+
+</div>
+
+</body>
+</html>

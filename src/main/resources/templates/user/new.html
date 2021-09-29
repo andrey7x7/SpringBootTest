@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.thymeleaf.org ">
+<head>
+    <meta charset="UTF-8">
+    <title>New author</title>
+</head>
+<body>
+
+<form th:method="POST" th:action="@{/user/add}" th:object="${user}">
+
+    <label for="name">FirstName:</label>
+    <input type="text" th:field="*{name}" id="name"/>
+    <br/>
+    <label for="name">LastName:</label>
+    <input type="text" th:field="*{family}" id="family"/>
+    <br/>
+    <label for="birthday">Birth of day:</label>
+    <input type="date" th:field="*{birthDay}" id="birthday"/>
+    <br/>
+    <label for="email">Email:</label>
+    <input type="text" th:field="*{email}" id="email"/>
+    <br/>
+    <label for="role">Role:</label>
+    <select  th:field="*{role}" id="role">
+        <option value="USER">USER</option>
+        <option value="ADMIN">ADMIN</option>
+    </select>
+    <br/>
+    <label for="password">Password:</label>
+    <input type="text" th:field="*{password}" id="password"/>
+    <br/>
+    <input type="submit" value="Create"/>
+
+</form>
+
+</body>
+</html>
