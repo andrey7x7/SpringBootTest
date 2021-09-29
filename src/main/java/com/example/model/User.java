@@ -1,7 +1,6 @@
 package com.example.model;
 
 import javax.persistence.*;
-import java.util.Set;
 
 @Entity // This tells Hibernate to make a table out of this class
 public class User {
@@ -14,6 +13,10 @@ public class User {
     private String email;
     private String password;
     private boolean active;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "country_id")
+    private Country country;
 
 //    @ElementCollection(targetClass = Role.class, fetch = FetchType.LAZY)
 //    @CollectionTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"))

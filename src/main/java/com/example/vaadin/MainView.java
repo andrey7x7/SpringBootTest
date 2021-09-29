@@ -1,4 +1,4 @@
-//package com.example;
+//package com.example.vaadin;
 //
 //import com.vaadin.flow.component.*;
 //import com.vaadin.flow.component.orderedlayout.VerticalLayout;

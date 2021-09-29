@@ -2,6 +2,6 @@ package com.example.model;
 
 import org.springframework.data.repository.CrudRepository;
 
-public interface UserRepository extends CrudRepository<User, Integer> {
+public interface CountryRepository extends CrudRepository<Country, Integer> {
 
 }
