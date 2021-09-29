@@ -18,7 +18,15 @@ public class User {
     @JoinColumn(name = "country_id")
     private Country country;
 
-//    @ElementCollection(targetClass = Role.class, fetch = FetchType.LAZY)
+    public Country getCountry() {
+        return country;
+    }
+
+    public void setCountry(Country country) {
+        this.country = country;
+    }
+
+    //    @ElementCollection(targetClass = Role.class, fetch = FetchType.LAZY)
 //    @CollectionTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"))
 //    @Enumerated(EnumType.STRING)
     private String role;

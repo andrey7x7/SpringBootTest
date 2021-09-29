@@ -12,24 +12,38 @@
     <label for="name">FirstName:</label>
     <input type="text" th:field="*{name}" id="name"/>
     <br/>
+
     <label for="name">LastName:</label>
     <input type="text" th:field="*{family}" id="family"/>
     <br/>
+
     <label for="birthday">Birth of day:</label>
     <input type="date" th:field="*{birthDay}" id="birthday"/>
     <br/>
+
     <label for="email">Email:</label>
     <input type="text" th:field="*{email}" id="email"/>
     <br/>
+
     <label for="role">Role:</label>
     <select  th:field="*{role}" id="role">
         <option value="USER">USER</option>
         <option value="ADMIN">ADMIN</option>
     </select>
     <br/>
+
     <label for="password">Password:</label>
     <input type="text" th:field="*{password}" id="password"/>
     <br/>
+
+    <label for="country">Country:</label>
+    <select  th:field="*{country}" id="country">
+        <div th:each="country : ${lot_country}">
+            <option th:value="${country.getId()}" th:text = "${country.getName()}">country</option>
+        </div>
+    </select>
+    <br/>
+
     <input type="submit" value="Create"/>
 
 </form>

@@ -1,5 +1,7 @@
 package com.example.controllers;
 
+import com.example.model.Country;
+import com.example.model.CountryRepository;
 import org.springframework.security.core.Authentication;
 import com.example.model.User;
 import com.example.model.UserRepository;
@@ -14,6 +16,9 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private CountryRepository countryRepository;
 
     //помечаем как метод для вызова странички по умолчанию (тут /people)
     @GetMapping()
@@ -43,7 +48,9 @@ public class UserController {
 
     //помечаем как метод для вызова странички /author/new
     @GetMapping("/new")
-    public String newUser(@ModelAttribute("user") User user) {
+    public String newUser(@ModelAttribute("user") User user, Model model) {
+        Iterable<Country> allCountry = countryRepository.findAll();
+        model.addAttribute("lot_country", allCountry);
         return "user/new";
     }
 
@@ -51,6 +58,8 @@ public class UserController {
     public String edit(@PathVariable("id") int id, Model model) {
         User user = userRepository.findById(id).get();
         model.addAttribute("user", user);
+        Iterable<Country> allCountry = countryRepository.findAll();
+        model.addAttribute("lot_country", allCountry);
         return "user/edit";
     }
 

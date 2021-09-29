@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.thymeleaf.org ">
+<head>
+    <meta charset="UTF-8">
+    <title>New country</title>
+</head>
+<body>
+
+<form th:method="POST" th:action="@{/country/add}" th:object="${country}">
+
+    <label for="name">Country Name:</label>
+    <input type="text" th:field="*{name}" id="name"/>
+    <br/>
+    <input type="submit" value="Create"/>
+
+</form>
+
+</body>
+</html>

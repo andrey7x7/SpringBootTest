@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All country</title>
+</head>
+<body>
+
+<!- создаем кнопку с методом GET для вызова страници "/author/new" и пердачи в нее объекта Author ->
+<form th:method="GET" th:action="@{/country/new}" th:object="${country}">
+    <input type="submit" value="Create new country"/>
+</form>
+
+<br/>
+
+<!- проходим по листу достаем объекты (как foreach) ->
+<div th:each="country : ${lot_country}">
+
+    <a th:text="${country.getId()}">country</a>)
+    <a th:text="${country.getName()}">country</a>
+<!--    <a th:href="@{/country/{id}(id=${country.getId()})}" th:text="${country.getName()}">user</a>-->
+
+</div>
+
+</body>
+</html>
