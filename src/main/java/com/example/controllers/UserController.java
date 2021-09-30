@@ -1,10 +1,7 @@
 package com.example.controllers;
 
-import com.example.model.Country;
-import com.example.model.CountryRepository;
+import com.example.model.*;
 import org.springframework.security.core.Authentication;
-import com.example.model.User;
-import com.example.model.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -51,6 +48,7 @@ public class UserController {
     public String newUser(@ModelAttribute("user") User user, Model model) {
         Iterable<Country> allCountry = countryRepository.findAll();
         model.addAttribute("lot_country", allCountry);
+        model.addAttribute("roles", Role.values());
         return "user/new";
     }
 
@@ -60,6 +58,7 @@ public class UserController {
         model.addAttribute("user", user);
         Iterable<Country> allCountry = countryRepository.findAll();
         model.addAttribute("lot_country", allCountry);
+        model.addAttribute("roles", Role.values());
         return "user/edit";
     }
 

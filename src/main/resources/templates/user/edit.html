@@ -26,8 +26,9 @@
 
     <label for="role">Role:</label>
     <select  th:field="*{role}" id="role">
-        <option value="USER">USER</option>
-        <option value="ADMIN">ADMIN</option>
+        <div th:each="role : ${roles}">
+            <option th:value="${role}" th:text = "${role}">role</option>
+        </div>
     </select>
     <br/>
 
