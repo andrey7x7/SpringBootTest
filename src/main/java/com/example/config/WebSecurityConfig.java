@@ -3,6 +3,7 @@ package com.example.config;
 import com.example.service.UserSevice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
+import com.example.model.Role;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -20,10 +21,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                     .antMatchers("/").permitAll()
-                    .antMatchers("/").permitAll()
-                    .antMatchers("/admin/**").hasAnyRole("ADMIN")
-                    .antMatchers("/user").hasAnyRole("USER", "ADMIN")
-                    .antMatchers("/user/**").hasRole("ADMIN")
+                    .antMatchers("/admin/**").hasAnyRole("ROLE_ADMIN")
+                    .antMatchers("/user").authenticated()
+                    .antMatchers("/user/**").hasRole(Role.ADMIN.toString())
                 .and()
                     .formLogin()
                     .permitAll()
