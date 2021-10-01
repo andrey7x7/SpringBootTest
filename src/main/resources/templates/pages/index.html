@@ -1,10 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Hello</title>
 </head>
 <body>
+
+<div>
+    <table frame="border" border="1" border-radius="3">
+        <tr>
+            <th>
+                <h3>
+                    <a th:text="${login}">value</a>
+                </h3>
+            </th>
+            <th>
+                <form th:method="GET" th:action="@{/logout}">
+                    <input type="submit" value="Logout"/>
+                </form>
+            </th>
+        </tr>
+    </table>
+</div>
+
 <h2>Hello User</h2>
 <h2>This HELLO page</h2>
 </body>

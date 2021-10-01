@@ -12,7 +12,7 @@
     <input type="text" th:field="*{username}" id="name"/>
     <br/>
 
-    <label for="name">LastName:</label>
+    <label for="family">LastName:</label>
     <input type="text" th:field="*{family}" id="family"/>
     <br/>
 
@@ -25,7 +25,7 @@
     <br/>
 
     <label for="role">Role:</label>
-    <select  th:field="*{role}" id="role">
+    <select  th:field="*{roles}" id="role">
         <div th:each="role : ${roles}">
             <option th:value="${role}" th:text = "${role}">role</option>
         </div>
